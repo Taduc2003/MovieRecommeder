@@ -1,11 +1,14 @@
 Celery
-Django
-django-allauth
-django-celery-beat 
-django-celery-results # currently requires Django 4.0 or older
+Django==4.0.7
+django-allauth==0.50
+django-celery-beat==2.3.0
+django-celery-results==2.4.0 # currently requires Django 4.0 or older
 django-htmx
 Faker
-python-decouple
-redis
-numpy
-scikit-surprise
+python-decouple==3.6
+redis==4.3.4
+numpy==1.23.5
+cython==0.29.36
+# scikit-surprise==1.1.4
+pandas==1.5.3
+gunicorn==21.2.0

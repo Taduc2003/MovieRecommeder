@@ -35,6 +35,7 @@ Use `.\venv\Scripts\activate` if on windows
 ```
 (venv) python -m pip install pip --upgrade
 (venv) python -m pip install -r requirements.txt
+(venv) python -m pip install scikit-surprise --no-build-isolation
 ```
 
 4. Open VSCode
