@@ -64,7 +64,7 @@ jobs:
         run: echo "IMAGE_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
       - name: Build Docker image
         run: |
-          docker build -t $REGISTRY/${{ env.IMAGE_NAME }}:latest -f ../Dockerfile .
+          docker build -t $REGISTRY/${{ env.IMAGE_NAME }}:latest .
       - name: Push Docker image
         run: |
           docker push $REGISTRY/${{ env.IMAGE_NAME }}:latest
