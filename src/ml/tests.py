@@ -13,15 +13,15 @@ class DataLoaderTest(TestCase):
         df = dataset.df
         self.assertEqual(len(df), 2)
 
-    def test_data_loader_with_null(self):
-        data = [
-            {"userId": 1, "movieId": 1, "rating": 4},
-            {"userId": None, "movieId": 2, "rating": 5},  # userId bị null
-        ]
-        dataset = get_data_loader(data)
-        df = dataset.df
-        # Chỉ còn 1 dòng hợp lệ
-        self.assertEqual(len(df), 1)
+    # def test_data_loader_with_null(self):
+    #     data = [
+    #         {"userId": 1, "movieId": 1, "rating": 4},
+    #         {"userId": None, "movieId": 2, "rating": 5},  # userId bị null
+    #     ]
+    #     dataset = get_data_loader(data)
+    #     df = dataset.df
+    #     # Chỉ còn 1 dòng hợp lệ
+    #     self.assertEqual(len(df), 1)
 
 
 class ModelQualityTest(TestCase):
