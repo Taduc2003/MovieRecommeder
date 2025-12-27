@@ -67,16 +67,3 @@ jobs:
         run: |
           docker push $REGISTRY/${{ env.IMAGE_NAME }}:latest
 
-  log-model-change:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Log Model Change
-        run: |
-          echo "Model updated at $(date)" >> model_change.log
-          git config --global user.email "actions@github.com"
-          git config --global user.name "github-actions"
-          git add model_change.log
-          git commit -m "Log model change [skip ci]" || echo "No changes to commit"
-          git push || echo "No changes to push"
