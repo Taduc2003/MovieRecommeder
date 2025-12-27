@@ -4,8 +4,6 @@
 
 Build a recommendation engine using Django &amp; a Machine Learning technique called Collaborative Filtering.
 
-[Live demo with limited features](http://recommender.demo.cfe.sh)
-
 ## Getting Started
 
 1. Clone the project and make it your own. Use branch `start` initially so we can all start in the same place.
@@ -13,7 +11,6 @@ Build a recommendation engine using Django &amp; a Machine Learning technique ca
 git clone https://github.com/codingforentrepreneurs/recommender
 cd recommender
 ```
-If you're _starting in the course_, use the following:
 
 ```
 git checkout start
@@ -51,8 +48,7 @@ CELERY_BROKER_REDIS_URL='redis://localhost:6380'
 DJANGO_DEBUG='1'
 SECRET_KEY='o43ig(nx@1)ae$y6_@lbh95fp@3#lda3!y6agi&r3e+m-z$cu_'
 ```
-Replace your `SECRET_KEY` with a new one using [this guide](https://www.codingforentrepreneurs.com/blog/create-a-one-off-django-secret-key/) or simply:
-
+Replace your `SECRET_KEY` with a new one using 
 ```bash
 python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 ```
@@ -63,7 +59,6 @@ Below will start a docker-based Redis instance that will run at port 6380 on you
 ```
 docker compose up -d
 ```
-Consider watching my [Docker & Docker Compose](https://www.codingforentrepreneurs.com/courses/docker-and-docker-compose/) course if you're new to docker.
 
 7. Run Django Commands
 
