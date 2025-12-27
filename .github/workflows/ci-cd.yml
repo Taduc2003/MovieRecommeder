@@ -71,6 +71,7 @@ jobs:
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Log Model Change
         run: |
           echo "Model updated at $(date)" >> model_change.log
