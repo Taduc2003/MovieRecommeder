@@ -60,6 +60,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set IMAGE_NAME lowercase
+        run: echo "IMAGE_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
       - name: Build Docker image
         run: |
           docker build -t $REGISTRY/${{ env.IMAGE_NAME }}:latest ./src
