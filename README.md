@@ -1,103 +1,80 @@
-[![Recommender Course Image](https://static.codingforentrepreneurs.com/media/courses/recommender/8aa6d83c-8134-4e68-8954-65bc978033b2.jpg)](https://www.codingforentrepreneurs.com/courses/recommender/)
+# Movie Recommender System
 
-# Recommender
+A Django-based recommendation engine using Collaborative Filtering (SVD) with Celery task queue for asynchronous ML operations.
 
-Build a recommendation engine using Django &amp; a Machine Learning technique called Collaborative Filtering.
+## Stack
 
-## Getting Started
+- **Backend**: Django 4.0.7
+- **ML Algorithm**: Surprise (scikit-surprise) - SVD Collaborative Filtering
+- **Task Queue**: Celery + Redis
+- **Database**: PostgreSQL 13
+- **Containerization**: Docker & Docker Compose
 
-1. Clone the project and make it your own. Use branch `start` initially so we can all start in the same place.
+## Quick Start
+
+### 1. Clone and Setup
 ```bash
-git clone https://github.com/codingforentrepreneurs/recommender
-cd recommender
+git clone https://github.com/Taduc2003/MovieRecommeder
+cd MovieRecommeder
 ```
 
-```
-git checkout start
-rm -rf .git
-git init .
-git add --all
-git commit -m "My recommender project"
-```
-
-2. Create virtual environment and activate it.
-
+### 2. Create Virtual Environment
 ```bash
-python3.8 -m venv venv
-source venv/bin/activate
-```
-Use `.\venv\Scripts\activate` if on windows
-
-3. Install requirements
-```
-(venv) python -m pip install pip --upgrade
-(venv) python -m pip install -r requirements.txt
-(venv) python -m pip install scikit-surprise --no-build-isolation
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate  # Linux/Mac
 ```
 
-4. Open VSCode
+### 3. Install Dependencies
 ```bash
-code .
+pip install -r requirements.txt
+pip install scikit-surprise --no-build-isolation
 ```
 
-5. Create `.env` file:
-
-In `src/.env` add:
+### 4. Setup Environment
+Create `src/.env`:
 ```
 CELERY_BROKER_REDIS_URL='redis://localhost:6380'
 DJANGO_DEBUG='1'
-SECRET_KEY='o43ig(nx@1)ae$y6_@lbh95fp@3#lda3!y6agi&r3e+m-z$cu_'
+SECRET_KEY='your-secret-key-here'
 ```
-Replace your `SECRET_KEY` with a new one using 
+
+Generate SECRET_KEY:
 ```bash
 python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 ```
 
-6. Start Docker Compose for a Redis Instance
-
-Below will start a docker-based Redis instance that will run at port 6380 on your local machine to match the `.env` from the previous step.
-```
+### 5. Start Services
+```bash
 docker compose up -d
 ```
 
-7. Run Django Commands
-
-```
-cd path/to/recommender
-source venv/bin/activate
-$(venv) cd src
-```
-
-Migrations and Create Superuser
-```
-$(venv) python manage.py makemigrations
-$(venv) python manage.py migrate
-$(venv) python manage.py createsuperuser
+### 6. Database Setup
+```bash
+cd src
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
 ```
 
-Run the server:
-```
-$(venv) python manage.py runserver
-```
+## Documentation
 
-8. Download the Movies Dataset
-- Go to [this kaggle project](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
-- Login or sign up
-- Download [The Movies Dataset](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
-- Expand archive.zip (the downloaded file)
-- Copy contents into `recommender/src/data` so that you have:
+For detailed documentation on:
+- ML model and training pipeline
+- Deployment architecture
+- Setup and configuration
+- Monitoring and evaluation
 
-```
-# in recommender projectdir
-$(venv) ls src/data
-credits.csv             links.csv               movies_metadata.csv     ratings_small.csv
-keywords.csv            links_small.csv         ratings.csv
-```
-We only need `links_small.csv`, `ratings_small.csv`, and `movies_metadata.csv` at this time.
+Visit: [https://Taduc2003.github.io/MovieRecommeder/](https://Taduc2003.github.io/MovieRecommeder/)
 
-The entire `src/data` folder is in `.gitignore` so you do not accidently commit this data to your git repo.
+Or see [docs/mkdocs_project/README.md](docs/mkdocs_project/README.md) for local documentation setup.
 
-9. Load in Movie Data
+## Project Structure
+
+- `src/` - Django application code
+- `docs/mkdocs_project/` - Technical documentation (MkDocs)
+- `docker-compose.yaml` - Service orchestration
+- `requirements.txt` - Python dependencies
 Run migrations if needed:
 ```
 python manage.py makemigrations
