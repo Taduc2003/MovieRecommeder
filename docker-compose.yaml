@@ -30,6 +30,7 @@ services:
     command: gunicorn cfehome.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./src:/app
+      - ./src/local-cdn/media/ml/models/surprise:/app/local-cdn/media/ml/models/surprise
     ports:
       - "8000:8000"
     depends_on:
@@ -47,6 +48,7 @@ services:
     command: celery -A cfehome worker -l info
     volumes:
       - ./src:/app
+      - ./src/local-cdn/media/ml/models/surprise:/app/local-cdn/media/ml/models/surprise
     depends_on:
       - db
       - redis
@@ -55,7 +57,21 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=django-db
       - DATABASE_URL=postgres://recommender:recommender@db:5432/recommender
-
+  beat:
+    build:
+      context: .
+    command: celery -A cfehome beat -l info
+    volumes:
+      - ./src:/app
+      - ./src/local-cdn/media/ml/models/surprise:/app/local-cdn/media/ml/models/surprise
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DJANGO_SETTINGS_MODULE=cfehome.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=django-db
+      - DATABASE_URL=postgres://recommender:recommender@db:5432/recommender
 volumes:
   postgres_data:
   redis_data:
