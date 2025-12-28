@@ -29,4 +29,5 @@ urlpatterns = [
     path('movies/', include('movies.urls')),
     path('rate/movie/', ratings_views.rate_movie_view),
     path('', include('suggestions.urls')),
+    path('', include('ml.urls')),
 ]
