@@ -40,5 +40,9 @@ app.conf.beat_schedule = {
         "schedule": crontab(hour=4, minute=30),
         "kwargs": {"max_pages": 5000, "offset": 200}
     },
+    'check-and-retrain-every-5-minutes': {
+        'task': 'ml.tasks.check_and_retrain_and_recommend',
+        'schedule': crontab(minute='*/5'),
+    },
     
 }
