@@ -50,6 +50,42 @@ Bài toán ML, dữ liệu, mô hình, quy trình huấn luyện
 Quy trình training, deployment, môi trường, monitoring
 
 ### Chương V: Kết luận
+Kết quả đạt được, hạn chế, hướng phát triển
+
+---
+
+## Tài liệu bổ sung
+
+- **Báo cáo chi tiết:** [Xem báo cáo đầy đủ](documentation.md)
+- **GitHub Repository:** https://github.com/Taduc2003/MovieRecommeder
+- **Live Demo:** https://taduc2003.github.io/MovieRecommeder/
+
+---
+
+## Công nghệ sử dụng
+
+```mermaid
+graph LR
+    A[Django] --> B[PostgreSQL]
+    A --> C[Celery + Redis]
+    C --> D[SVD Model]
+    E[Docker Compose] --> A
+    E --> B
+    E --> C
+    A --> F[GitHub Pages]
+    G[MkDocs] --> F
+```
+
+- **Backend:** Django 4.0.7
+- **ML Algorithm:** Surprise (scikit-surprise) - SVD Collaborative Filtering
+- **Task Queue:** Celery + Redis
+- **Database:** PostgreSQL 13
+- **Containerization:** Docker & Docker Compose
+- **Documentation:** MkDocs + Material Theme
+- **CI/CD:** GitHub Actions
+- **Hosting:** GitHub Pages
+
+### Chương V: Kết luận
 Kết quả đạt được, hạn chế, hướng phát triển tương lai
 
 ---

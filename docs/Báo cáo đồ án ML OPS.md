@@ -2,6 +2,10 @@
 
 **TRƯỜNG CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG**
 
+![](Aspose.Words.ac0a9a9f-08f4-4e5b-8b70-310306419270.001.png)
+
+![Ảnh có chứa văn bản, ký hiệu&#x0A;&#x0A;Mô tả được tạo tự động](Aspose.Words.ac0a9a9f-08f4-4e5b-8b70-310306419270.002.png)
+
 **BÁO CÁO MÔN HỌC**
 
 **VẬN HÀNH HỆ THỐNG HỌC MÁY**
@@ -42,6 +46,11 @@ Hà Nội, Ngày 25 tháng 12 năm 2025
   - [1. Kết quả đạt được](#1-kết-quả-đạt-được)
   - [2. Hạn chế của project](#2-hạn-chế-của-project)
   - [3. Hướng phát triển tương lai](#3-hướng-phát-triển-tương-lai)
+- [Chương VI: Tài liệu và Triển khai Documentation](#chương-vi-tài-liệu-và-triển-khai-documentation)
+  - [1. Hệ thống Documentation](#1-hệ-thống-documentation)
+  - [2. GitHub Actions CI/CD](#2-github-actions-cicd)
+  - [3. Tính năng Documentation](#3-tính-năng-documentation)
+  - [4. Hạn chế & Cải thiện](#4-hạn-chế--cải-thiện)
 
 ---
 
@@ -595,6 +604,128 @@ if stats:
 | API latency (p95) | 50ms | 20ms | 10ms |
 | Users supported | 600 | 10K | 100K+ |
 | Predictions/day | 100K | 1M | 10M+ |
+
+---
+
+# Chương VI: Tài liệu và Triển khai Documentation
+
+## 1. Hệ thống Documentation
+
+### 1.1 MkDocs
+
+Dự án sử dụng **MkDocs** với theme **Material for MkDocs** để tạo tài liệu kỹ thuật hoàn chỉnh.
+
+**Cấu trúc Documentation:**
+```
+docs/mkdocs_project/
+├── mkdocs.yml              # Cấu hình MkDocs
+├── docs/
+│   ├── index.md            # Trang chủ
+│   ├── chap1-gioi-thieu/   # Chương I
+│   ├── chap2-muc-tieu/     # Chương II
+│   ├── chap3-ml-overview/  # Chương III
+│   ├── chap4-deployment/   # Chương IV
+│   ├── chap5-conclusion/   # Chương V
+└── site/                   # Generated static site
+```
+
+### 1.2 Công nghệ
+
+| Công cụ | Phiên bản | Mục đích |
+|---------|----------|---------|
+| MkDocs | 1.5.3 | Static site generator |
+| Material Theme | 9.5.9 | Modern responsive theme |
+| Python | 3.8+ | Runtime |
+| GitHub Pages | - | Free hosting |
+
+### 1.3 Cách sử dụng Documentation
+
+**Cài đặt:**
+```bash
+cd docs/mkdocs_project
+pip install -r requirements.txt
+```
+
+**Development Server:**
+```bash
+mkdocs serve
+# Truy cập: http://127.0.0.1:8000/
+```
+
+**Build Static Site:**
+```bash
+mkdocs build
+# Output: site/ folder
+```
+
+**Deploy to GitHub Pages:**
+- Tự động qua GitHub Actions
+- URL: https://Taduc2003.github.io/MovieRecommeder/
+
+## 2. GitHub Actions CI/CD
+
+### 2.1 Workflows
+
+**File: `.github/workflows/test-build.yml`**
+- Trigger: Pull Request vào `main` branch
+- Chức năng: Kiểm tra build MkDocs (strict mode)
+- Nếu build failed → PR blocked
+
+**File: `.github/workflows/deploy.yml`**
+- Trigger: Push vào `main` branch hoặc thay đổi trong `docs/mkdocs_project/`
+- Chức năng: Build và deploy lên GitHub Pages
+- Tự động publish site
+
+### 2.2 Quy trình Development
+
+1. **Chỉnh sửa Documentation:**
+   - Edit các file markdown trong `docs/mkdocs_project/docs/`
+   - Test locally: `mkdocs serve`
+
+2. **Tạo Pull Request:**
+   - Push branch mới
+   - GitHub Actions chạy `test-build.yml`
+   - Check kết quả (xanh ✅ = OK)
+
+3. **Merge & Deploy:**
+   - Merge PR vào `main`
+   - GitHub Actions chạy `deploy.yml`
+   - Site tự động update trong ~2 phút
+
+## 3. Tính năng Documentation
+
+✅ **Material Design Theme:**
+- Responsive layout (desktop, tablet, mobile)
+- Dark mode support
+- Full-text search
+- Navigation tabs
+
+✅ **Markdown Extensions:**
+- Math equations (KaTeX): $E = mc^2$
+- Code highlighting
+- Tables, admonitions, tabs
+- Task lists
+
+✅ **Tối ưu hóa:**
+- Fast build time (~2 sec)
+- SEO friendly
+- Offline search
+- Logo branding (Đại học Bách Khoa)
+
+## 4. Hạn chế & Cải thiện
+
+**Hiện tại:**
+- ❌ Chưa có version control cho documentation
+- ❌ Chưa có multi-language support
+- ❌ Chưa có API documentation (Swagger/OpenAPI)
+
+**Tương lai (6-12 tháng):**
+1. Integration với API documentation (Swagger)
+2. Multi-language (VN, EN)
+3. Video tutorials
+4. Interactive examples
+5. Documentation versioning (multiple branches)
+6. PDF export
 
 ---
 

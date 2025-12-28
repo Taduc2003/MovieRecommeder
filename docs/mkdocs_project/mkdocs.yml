@@ -83,6 +83,7 @@ plugins:
 # Navigation
 nav:
   - Home: index.md
+  - Documentation: documentation.md
   - Chương I - Giới thiệu:
       - Tổng quan: chap1-gioi-thieu/index.md
   - Chương II - Mục tiêu:
@@ -107,7 +108,3 @@ extra:
       link: https://github.com/Taduc2003/MovieRecommeder
       name: GitHub
   copyright: Copyright &copy; 2025 - Movie Recommender System
-
-# CSS customization
-extra_css:
-  - css/custom.css
