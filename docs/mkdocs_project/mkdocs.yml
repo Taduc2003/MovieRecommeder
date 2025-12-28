@@ -1,18 +1,20 @@
 site_name: Hybrid Movie Recommendation System
 site_description: Báo cáo Hệ thống Gợi ý Phim Kết hợp - VẬN HÀNH HỆ THỐNG HỌC MÁY
 site_author: Bùi Anh Đức, Bùi Tá Đức, Nguyễn Hải Phong
-site_url: https://movierec-docs.example.com
+site_url: https://Taduc2003.github.io/MovieRecommeder/
 
 # Repository
 repo_name: MovieRecommender
-repo_url: https://github.com/yourusername/MovieRecommender
+repo_url: https://github.com/Taduc2003/MovieRecommeder
 edit_uri: edit/main/docs/
 
 # Theme configuration
 theme:
   name: material
   language: vi
-  logo: https://raw.githubusercontent.com/codingforentrepreneurs/recommender/main/README.md
+  logo: material/movie-open
+  icon:
+    repo: fontawesome/brands/github
   
   palette:
     # Light mode
@@ -101,7 +103,7 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/MovieRecommender
+      link: https://github.com/Taduc2003/MovieRecommeder
       name: GitHub
   copyright: Copyright &copy; 2025 - Movie Recommender System
 
