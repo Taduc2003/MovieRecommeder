@@ -1,0 +1,110 @@
+site_name: Hybrid Movie Recommendation System
+site_description: Báo cáo Hệ thống Gợi ý Phim Kết hợp - VẬN HÀNH HỆ THỐNG HỌC MÁY
+site_author: Bùi Anh Đức, Bùi Tá Đức, Nguyễn Hải Phong
+site_url: https://movierec-docs.example.com
+
+# Repository
+repo_name: MovieRecommender
+repo_url: https://github.com/yourusername/MovieRecommender
+edit_uri: edit/main/docs/
+
+# Theme configuration
+theme:
+  name: material
+  language: vi
+  logo: https://raw.githubusercontent.com/codingforentrepreneurs/recommender/main/README.md
+  
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+      title: Mục lục
+  - tables
+  - md_in_html
+
+# JavaScript extensions for math
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+
+# Navigation
+nav:
+  - Home: index.md
+  - Chương I - Giới thiệu:
+      - Tổng quan: chap1-gioi-thieu/index.md
+  - Chương II - Mục tiêu:
+      - Mục tiêu: chap2-muc-tieu/index.md
+  - Chương III - ML Overview:
+      - Bài toán ML: chap3-ml-overview/bai-toan-ml.md
+      - Dữ liệu: chap3-ml-overview/du-lieu.md
+      - Mô hình ML: chap3-ml-overview/mo-hinh-ml.md
+      - Quy trình huấn luyện: chap3-ml-overview/quy-trinh-huan-luyen.md
+  - Chương IV - Triển khai:
+      - Quy trình training: chap4-deployment/quy-trinh-training.md
+      - Deployment: chap4-deployment/deployment.md
+      - Môi trường: chap4-deployment/moi-truong.md
+      - Monitoring: chap4-deployment/monitoring.md
+  - Chương V - Kết luận:
+      - Kết luận: chap5-conclusion/index.md
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/MovieRecommender
+      name: GitHub
+  copyright: Copyright &copy; 2025 - Movie Recommender System
+
+# CSS customization
+extra_css:
+  - css/custom.css
