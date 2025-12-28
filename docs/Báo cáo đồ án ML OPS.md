@@ -666,11 +666,6 @@ mkdocs build
 
 ### 2.1 Workflows
 
-**File: `.github/workflows/test-build.yml`**
-- Trigger: Pull Request vào `main` branch
-- Chức năng: Kiểm tra build MkDocs (strict mode)
-- Nếu build failed → PR blocked
-
 **File: `.github/workflows/deploy.yml`**
 - Trigger: Push vào `main` branch hoặc thay đổi trong `docs/mkdocs_project/`
 - Chức năng: Build và deploy lên GitHub Pages
@@ -682,12 +677,7 @@ mkdocs build
    - Edit các file markdown trong `docs/mkdocs_project/docs/`
    - Test locally: `mkdocs serve`
 
-2. **Tạo Pull Request:**
-   - Push branch mới
-   - GitHub Actions chạy `test-build.yml`
-   - Check kết quả (xanh ✅ = OK)
-
-3. **Merge & Deploy:**
+2. **Merge & Deploy:**
    - Merge PR vào `main`
    - GitHub Actions chạy `deploy.yml`
    - Site tự động update trong ~2 phút
