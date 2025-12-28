@@ -285,6 +285,10 @@ Ensure `plugins.search` trong mkdocs.yml
 - [Markdown Guide](https://www.markdownguide.org/)
 - [GitHub Pages Docs](https://docs.github.com/en/pages)
 
+## Tham khảo
+
+- **Original Recommender Project:** [codingforentrepreneurs/recommender](https://github.com/codingforentrepreneurs/recommender)
+
 ## Liên hệ
 
 - **Repository:** https://github.com/Taduc2003/MovieRecommeder

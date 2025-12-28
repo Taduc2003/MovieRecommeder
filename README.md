@@ -120,3 +120,7 @@ python manage.py recommend
 - [Install Redis on Windows](https://www.codingforentrepreneurs.com/blog/redis-on-windows/)
 - [Install Redis on macOS](https://www.codingforentrepreneurs.com/blog/install-redis-mac-and-linux)
 - [Celery + Redis + Django Setup Guide](https://www.codingforentrepreneurs.com/blog/celery-redis-django/)
+
+## References
+
+- **Original Recommender Project:** https://github.com/codingforentrepreneurs/recommender
