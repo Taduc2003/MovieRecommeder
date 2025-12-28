@@ -124,6 +124,15 @@ venv.bak/
 
 # mkdocs documentation
 /site
+docs/mkdocs_project/site/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
 # mypy
 .mypy_cache/
