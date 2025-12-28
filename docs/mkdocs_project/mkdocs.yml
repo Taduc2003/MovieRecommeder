@@ -12,7 +12,8 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: vi
-  logo: material/movie-open
+  logo: assets/logo.png
+  favicon: assets/logo.png
   icon:
     repo: fontawesome/brands/github
   
